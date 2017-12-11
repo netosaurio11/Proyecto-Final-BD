@@ -4,7 +4,7 @@
 create table producto (
 	producto_id number(10,0) not null,
 	nombre varchar2(40) not null,
-	fecha_precio_inicio date not null,
+	fecha_precio_inicio date default sysdate not null,
 	precio_actual number(6,2) not null,
 	copias_vendidas number(10,0) not null,
 	copias_en_existencia number(10,0) not null,
@@ -117,7 +117,7 @@ create table status_orden(--R=REGISTRADA, P=PAGADA,V=EN ENVIO, S=STREAMING HABIL
 create table orden_compra(
 	orden_compra_id number(10,0) not null,
 	folio varchar2(10) not null,
-	fecha_status date not null,
+	fecha_status date default sysdate not null,
 	con_envio number(1,0) not null,
 	con_streaming number(1,0) not null,
 	cliente_id number(10,0) not null,
@@ -130,7 +130,7 @@ create table orden_compra(
 );
 create table status_orden_historico(
 	status_orden_historico_id number(10,0) not null,
-	fecha_status date not null,
+	fecha_status date default sysdate not null,
 	status_orden_id number(10,0) not null,
 	orden_compra_id number(10,0) not null,
 	constraint so_historico_pk primary key(status_orden_historico_id),
@@ -150,7 +150,7 @@ create table factura(
 	factura_id number(10,0) not null,
 	folio_factura number(10,0) not null,
 	monto_total number(6,2) not null,
-	fecha_factura date not null,
+	fecha_factura date default sysdate not null,
 	iva as (monto_total*0.16) not null,
 	forma_pago_id number(10,0) not null,
 	orden_compra_id number(10,0) not null,
@@ -162,7 +162,7 @@ create table factura(
 create table empresa_paquetera(
 	empresa_paquetera_id number(10,0) not null,
 	nombre varchar2(40) not null,
-	fecha_registro date not null,
+	fecha_registro date default sysdate not null,
 	zona char(1) not null,
 	constraint empresa_pk primary key(empresa_paquetera_id),
 	constraint empresa_zona_chk check(zona in('A','B','C'))
@@ -170,7 +170,7 @@ create table empresa_paquetera(
 create table paquete(
 	paquete_id number(10,0) not null,
 	num_seguimiento varchar2(24) not null,
-	fecha_envio date not null,
+	fecha_envio date default sysdate not null,
 	factura_id number(10,0) not null,
 	empresa_paquetera_id number(10,0) not null,
 	constraint paquete_pk primary key(paquete_id),
