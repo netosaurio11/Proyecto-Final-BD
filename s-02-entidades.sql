@@ -61,8 +61,7 @@ create table tarjeta_credito(
 	anio_vencimiento varchar2(2) not null,
 	num_seguridad varchar2(3) not null,
 	constraint tarjeta_pk primary key(forma_pago_id),
-	constraint form_pago_tarjeta_id_fk foreign key(forma_pago_id) references forma_pago(forma_pago_id),
-	constraint tarjeta_num_tarjeta_uk unique(num_tarjeta)
+	constraint form_pago_tarjeta_id_fk foreign key(forma_pago_id) references forma_pago(forma_pago_id)
 );
 create table transferencia(
 	forma_pago_id number(10,0) not null,
@@ -126,7 +125,8 @@ create table orden_compra(
 	constraint cliente_oc_id_fk foreign key(cliente_id) references cliente(cliente_id),
 	constraint stator_ordenc_id_fk foreign key(status_orden_id) references status_orden(status_orden_id),
 	constraint orden_compra_envio_chk check(con_envio in(1,0)),
-	constraint orden_compra_stream_chk check(con_streaming in(1,0))
+	constraint orden_compra_stream_chk check(con_streaming in(1,0)),
+	constraint orden_compre_folio_uq unique(folio)
 );
 create table status_orden_historico(
 	status_orden_historico_id number(10,0) not null,
