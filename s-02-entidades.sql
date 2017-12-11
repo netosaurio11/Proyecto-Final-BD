@@ -78,6 +78,7 @@ create table cliente(
 	telefono number(10,0) not null,
 	rfc varchar2(10) null,
 	username varchar2(20) not null,
+	email varchar2(40) not null,
 	password varchar2(10) not null,
 	forma_pago_id number(10,0) not null,
 	constraint cliente_pk primary key(cliente_id),
