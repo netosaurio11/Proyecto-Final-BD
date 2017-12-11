@@ -146,6 +146,15 @@ create table orden_compra_producto(
 	constraint prod_ocp_id_fk foreign key(producto_id) references producto(producto_id),
 	constraint orc_ocp_id_fk foreign key(orden_compra_id) references orden_compra(orden_compra_id)
 );
+create table precio_prodcuto(
+	precio_prodcuto_id number(10,0) not null,
+	precio number(6,2) not null,
+	fecha_inicio date default sysdate not null,
+	fecha_fin date not null,
+	producto_id number(10,0) not null,
+	constraint precprod_pk primary key(precio_prodcuto_id),
+	constraint prod_pp_id_fk foreign key(producto_id) references producto(producto_id)
+);
 create table factura(
 	factura_id number(10,0) not null,
 	folio_factura number(10,0) not null,
