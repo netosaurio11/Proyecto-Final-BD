@@ -1,0 +1,3 @@
+--@Autor(es): Mejia Valdiviezo Ernesto Daniel, Godoy Juarez Carlos
+--@Fecha de creación: 11/12/2017
+--@Descripción: Creación de tablas del caso de estudio.

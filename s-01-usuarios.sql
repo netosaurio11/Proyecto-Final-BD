@@ -1,5 +1,5 @@
 --@Autor(es): Mejia Valdiviezo Ernesto Daniel, Godoy Juarez Carlos
---@Fecha de creación: 04/11/2017
+--@Fecha de creación: 11/12/2017
 --@Descripción: Creación de usuarios, roles y asignación de permisos
 
 connect sys/system as sysdba
@@ -28,6 +28,13 @@ create role rol_invitado;
 
 --Asignar el rol a gjc_proy_invitado
 grant rol_invitado gm_proy_invitado;
+
+--Creación del directorio para tablas externas
+
+create or replace directory tmp_dir as '/tmp';
+
+--Creación de permisos al administrador para lectura y escritura
+grant read, write on directory tmp_dir to gm_proy_invitado;
 
 prompt Listo!
 exit;
