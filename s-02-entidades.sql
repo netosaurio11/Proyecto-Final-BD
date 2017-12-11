@@ -85,3 +85,106 @@ create table cliente(
 	constraint fpago_cliente_fk foreign key(forma_pago_id) references forma_pago(forma_pago_id),
 	constraint cliente_usrname_ul unique(username)
 	);
+create table tipo_direccion(
+	tipo_direccion_id number(10,0) not null,
+	clave char(1) not null,
+	descripcion varchar2(40) not null,
+	constraint tipo_direccion_pk primary key(tipo_direccion_id),
+	constraint tipo_direccion_clave_chk check(clave in ('E','F')) --E=ENTREGA F=FACTURACION
+);
+create table direccion(
+	direccion_id number(10,0) not null,
+	calle varchar2(40) not null,
+	num_ext varchar2(20) not null,
+	num_int varchar2(20) not null,
+	colonia varchar2(40) not null,
+	codigo_postal varchar2(40) not null,
+	municipio varchar2(40) not null,
+	entidad_fed varchar2(40) not null,
+	tipo_direccion_id number(10,0) not null,
+	cliente_id number(10,0) not null,
+	constraint direccion_pk primary key(direccion_id),
+	constraint tdir_dir_id_fk foreign key(tipo_direccion_id) references tipo_direccion(tipo_direccion_id),
+	constraint cliente_dir_id_fk foreign key(cliente_id) references cliente(cliente_id)
+);
+create table status_orden(--R=REGISTRADA, P=PAGADA,V=EN ENVIO, S=STREAMING HABILITADO, E=ENTREGADA, D=DEVUELTA
+	status_orden_id number(10,0) not null,
+	clave char(1) not null,
+	descripcion varchar2(40) not null,
+	constraint status_orden_pk primary key(status_orden_id),
+	constraint status_orden_clave_chk check(clave in('R','P','V','S','E','D'))
+);
+create table orden_compra(
+	orden_compra_id number(10,0) not null,
+	folio varchar2(10) not null,
+	fecha_status date not null,
+	con_envio number(1,0) not null,
+	con_streaming number(1,0) not null,
+	cliente_id number(10,0) not null,
+	status_orden_id number(10,0) not null,
+	constraint orden_compra_pk primary key(orden_compra_id),
+	constraint cliente_oc_id_fk foreign key(cliente_id) references cliente(cliente_id),
+	constraint stator_ordenc_id_fk foreign key(status_orden_id) references status_orden(status_orden_id),
+	constraint orden_compra_envio_chk check(con_envio in(1,0)),
+	constraint orden_compra_stream_chk check(con_streaming in(1,0))
+);
+create table status_orden_historico(
+	status_orden_historico_id number(10,0) not null,
+	fecha_status date not null,
+	status_orden_id number(10,0) not null,
+	orden_compra_id number(10,0) not null,
+	constraint so_historico_pk primary key(status_orden_historico_id),
+	constraint so_sohist_id_fk foreign key(status_orden_id) references status_orden(status_orden_id),
+	constraint orc_sohist_id_fk foreign key(orden_compra_id) references orden_compra(orden_compra_id)
+);
+create table orden_compra_producto(
+	producto_id number(10,0) not null,
+	orden_compra_id number(10,0) not null,
+	cantidad number(3,0) not null,
+	precio_unitario number(6,2) not null,
+	constraint orc_prod_pk primary key(producto_id,orden_compra_id),
+	constraint prod_ocp_id_fk foreign key(producto_id) references producto(producto_id),
+	constraint orc_ocp_id_fk foreign key(orden_compra_id) references orden_compra(orden_compra_id)
+);
+create table factura(
+	factura_id number(10,0) not null,
+	folio_factura number(10,0) not null,
+	monto_total number(6,2) not null,
+	fecha_factura date not null,
+	iva as (monto_total*0.16) not null,
+	forma_pago_id number(10,0) not null,
+	orden_compra_id number(10,0) not null,
+	constraint factura_pk primary key(factura_id),
+	constraint fp_fac_id_fk foreign key(forma_pago_id) references forma_pago(forma_pago_id),
+	constraint orc_fac_id_fk foreign key(orden_compra_id) references orden_compra(orden_compra_id),
+	constraint fact_folio_uk unique(folio_factura)
+);
+create table empresa_paquetera(
+	empresa_paquetera_id number(10,0) not null,
+	nombre varchar2(40) not null,
+	fecha_registro date not null,
+	zona char(1) not null,
+	constraint empresa_pk primary key(empresa_paquetera_id),
+	constraint empresa_zona_chk check(zona in('A','B','C'))
+);
+create table paquete(
+	paquete_id number(10,0) not null,
+	num_seguimiento varchar2(24) not null,
+	fecha_envio date not null,
+	factura_id number(10,0) not null,
+	empresa_paquetera_id number(10,0) not null,
+	constraint paquete_pk primary key(paquete_id),
+	constraint fact_paq_id_fk foreign key(factura_id) references factura(factura_id),
+	constraint empresa_paq_id_fk foreign key(empresa_paquetera_id) references empresa_paquetera(empresa_paquetera_id),
+	constraint paquete_num_seg_uk unique(num_seguimiento)
+);
+create table seguimiento_paquete(
+	seguimiento_paquete_id number(10,0) not null,
+	paquete_id number(10,0) not null,
+	num_escala number(10,0) not null,
+	fecha_arrivo date not null,
+	lugar varchar2(40) not null,
+	constraint seg_paquete_pk primary key(seguimiento_paquete_id,paquete_id),
+	constraint paq_segp_id_fk foreign key(paquete_id) references paquete(paquete_id),
+	constraint segpaq_num_esc_uk unique(num_escala)
+);
