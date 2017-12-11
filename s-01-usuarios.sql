@@ -36,5 +36,8 @@ create or replace directory tmp_dir as '/tmp';
 --Creación de permisos al administrador para lectura y escritura
 grant read, write on directory tmp_dir to gm_proy_invitado;
 
+--Asignación de permisos para crear sinonimos para el usuario invitado
+grant create synonym to gm_proy_invitado;
+
 prompt Listo!
 exit;
