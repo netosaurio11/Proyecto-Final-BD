@@ -40,4 +40,5 @@ grant read, write on directory tmp_dir to gm_proy_invitado;
 grant create synonym to gm_proy_invitado;
 
 prompt Listo!
+connect gm_proy_admin/admin;
 exit;

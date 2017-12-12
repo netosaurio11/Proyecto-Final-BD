@@ -25,3 +25,5 @@ for factura;
 
 CREATE SYNONYM gm_proy_admin.cliente_sinonimo
 for cliente;
+
+connect gm_proy_admin/admin;
