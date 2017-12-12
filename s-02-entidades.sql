@@ -13,7 +13,7 @@ create table producto (
 	folio varchar2(13) not null,
 	tipo_producto char(1) not null,
 	constraint producto_pk primary key(producto_id),
-	constraint producto_folio_uk unique(folio),
+	--constraint producto_folio_uk unique(folio),
 	constraint producto_url_uk unique(url_setreaming),
 	constraint producto_tipo_chk check(tipo_producto in('V','P','A'))
 );
@@ -82,8 +82,8 @@ create table cliente(
 	password varchar2(10) not null,
 	forma_pago_id number(10,0) not null,
 	constraint cliente_pk primary key(cliente_id),
-	constraint fpago_cliente_fk foreign key(forma_pago_id) references forma_pago(forma_pago_id),
-	constraint cliente_usrname_ul unique(username)
+	constraint fpago_cliente_fk foreign key(forma_pago_id) references forma_pago(forma_pago_id)
+	--constraint cliente_usrname_ul unique(username)
 	);
 create table tipo_direccion(
 	tipo_direccion_id number(10,0) not null,
@@ -126,8 +126,8 @@ create table orden_compra(
 	constraint cliente_oc_id_fk foreign key(cliente_id) references cliente(cliente_id),
 	constraint stator_ordenc_id_fk foreign key(status_orden_id) references status_orden(status_orden_id),
 	constraint orden_compra_envio_chk check(con_envio in(1,0)),
-	constraint orden_compra_stream_chk check(con_streaming in(1,0)),
-	constraint orden_compre_folio_uq unique(folio)
+	constraint orden_compra_stream_chk check(con_streaming in(1,0))
+	--constraint orden_compre_folio_uq unique(folio)
 );
 create table status_orden_historico(
 	status_orden_historico_id number(10,0) not null,
