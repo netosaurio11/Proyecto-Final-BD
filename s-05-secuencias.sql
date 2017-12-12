@@ -31,7 +31,7 @@ create sequence precio_producto_seq
 	nomaxvalue
 	nominvalue
 	nocycle;
-create sequence orden_compra
+create sequence orden_compra_seq
 	start with 1
 	increment by 1
 	nomaxvalue

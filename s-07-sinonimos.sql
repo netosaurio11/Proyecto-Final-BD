@@ -11,9 +11,9 @@ for paquete;
 create or replace public synonym orden_compra_sinonimo
 for orden_compra;
 
-grant select on producto to sr_proy_invitado;
-grant select on factura to sr_proy_invitado;
-grant select on cliente to sr_proy_invitado;
+grant select on producto to gm_proy_invitado;
+grant select on factura to gm_proy_invitado;
+grant select on cliente to gm_proy_invitado;
 
 connect gm_proy_invitado / invitado
 

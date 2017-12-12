@@ -6,7 +6,7 @@ create table empresa_paquetera_ext(
 	nombre varchar2(40),
 	fecha_registro date,
 	zona char(1)
-);
+)
 organization external (
 	type oracle_loader
 	default directory tmp_dir

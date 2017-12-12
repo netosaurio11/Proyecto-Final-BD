@@ -12,5 +12,7 @@ where c.cliente_id=oc.cliente_id;
 create or replace view v_tarjeta(
 	tipo_tarjeta,mes_vencimiento,anio_vencimiento, nombre, ap_paterno,ap_materno
 ) as select fp.tipo_tarjeta,fp.mes_vencimiento,fp.anio_vencimiento,c.nombre,c.ap_paterno,c.ap_materno
-from forma_pago fp, cliente c
+from forma_pago fp
+join tarjeta t
+on t.forma_pago_id=fp.forma_pago_id
 where c.forma_pago_id=fp.forma_pago_id;

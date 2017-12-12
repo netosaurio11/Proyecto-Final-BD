@@ -11,7 +11,7 @@ v_status_orden_id number(10,0);
 v_orden_compra_id number(10,0);
 BEGIN
 select status_orden_historico_seq.nextval into v_status_orden_historico_id from dual;
-v_fecha_status :=:NEW.v_fecha_status;
+v_fecha_status :=:NEW.fecha_status;
 v_status_orden_id:=:NEW.status_orden_id;
 v_orden_compra_id:=:NEW.orden_compra_id;
 insert into status_orden_historico(status_orden_historico_id,fecha_status,status_orden_id,orden_compra_id)
