@@ -8,7 +8,7 @@ create table producto (
 	precio_actual number(6,2) not null,
 	copias_vendidas number(10,0) not null,
 	copias_en_existencia number(10,0) not null,
-	url_setreaming varchar2(40) not null,
+	url_streaming varchar2(40) not null,
 	num_visualizaciones number(10,0) not null,
 	folio varchar2(13) not null,
 	tipo_producto char(1) not null,
@@ -149,7 +149,7 @@ create table orden_compra_producto(
 	constraint orc_ocp_id_fk foreign key(orden_compra_id) references orden_compra(orden_compra_id)
 );
 create table precio_producto(
-	precio_prodcuto_id number(10,0) not null,
+	precio_producto_id number(10,0) not null,
 	precio number(6,2) not null,
 	fecha_inicio date default sysdate not null,
 	fecha_fin date not null,

@@ -45,15 +45,15 @@ insert into forma_pago (forma_pago_id, titular, banco, tipo_forma_pago)
 insert into forma_pago (forma_pago_id, titular, banco, tipo_forma_pago) 
 	values (10, 'Ardelia Coatsworth', 'Banamex', 'T');
 --TARJETA_CREDITO
-insert into forma_pago (forma_pago_id, num_tarjeta, tipo_tarjeta, mes_vencimiento, anio_vencimiento, num_seguridad) 
+insert into tarjeta_credito (forma_pago_id, num_tarjeta, tipo_tarjeta, mes_vencimiento, anio_vencimiento, num_seguridad) 
 	values (1, '3530292642827378', 'jcb', '03', '17', '185');
-insert into forma_pago (forma_pago_id, num_tarjeta, tipo_tarjeta, mes_vencimiento, anio_vencimiento, num_seguridad) 
+insert into tarjeta_credito (forma_pago_id, num_tarjeta, tipo_tarjeta, mes_vencimiento, anio_vencimiento, num_seguridad) 
 	values (3, '3574587749228801', 'jcb', '11', '15', '103');
-insert into forma_pago (forma_pago_id, num_tarjeta, tipo_tarjeta, mes_vencimiento, anio_vencimiento, num_seguridad) 
+insert into tarjeta_credito (forma_pago_id, num_tarjeta, tipo_tarjeta, mes_vencimiento, anio_vencimiento, num_seguridad) 
 	values (5, '3531561865438033', 'jcb', '05', '18', '719');
-insert into forma_pago (forma_pago_id, num_tarjeta, tipo_tarjeta, mes_vencimiento, anio_vencimiento, num_seguridad) 
+insert into tarjeta_credito (forma_pago_id, num_tarjeta, tipo_tarjeta, mes_vencimiento, anio_vencimiento, num_seguridad) 
 	values (7, '372301023995980', 'americanexpress', '03', '19', '626');
-insert into forma_pago (forma_pago_id, num_tarjeta, tipo_tarjeta, mes_vencimiento, anio_vencimiento, num_seguridad) 
+insert into tarjeta_credito (forma_pago_id, num_tarjeta, tipo_tarjeta, mes_vencimiento, anio_vencimiento, num_seguridad) 
 	values (9, '67591788670048838', 'maestro', '08', '18', '489');
 --TRANSFERENCIA
 insert into transferencia (forma_pago_id, CLABE) 
@@ -89,9 +89,9 @@ insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, 
 	values (cliente_seq.nextval, 'Mayor', 'Blaydon', 'Heynen', 8104996168, 'MABH123', 'mheynen9', 'mheynen9@wikia.com', 'jvs9qk', 0, 10);	
 --TIPO_DIRECCION
 insert into tipo_direccion (tipo_direccion_id, clave, descripcion) 
-	values (1, 'XS', 'E');
+	values (1, 'E', 'Dirección de entrega');
 insert into tipo_direccion (tipo_direccion_id, clave, descripcion) 
-	values (2, 'L', 'F');
+	values (2, 'F', 'Dirección de facturación');
 --DIRECCION
 insert into direccion (direccion_id, calle, num_ext, num_int, colonia, codigo_postal, municipio, entidad_fed, tipo_direccion_id, cliente_id) 
 	values (direccion_seq.nextval, 'Miller', '409', '7238', 'Pass', '9510', 'Indonesia', 'Cyprus', 1, 1);
