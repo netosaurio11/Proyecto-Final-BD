@@ -80,6 +80,7 @@ create table cliente(
 	username varchar2(20) not null,
 	email varchar2(40) not null,
 	password varchar2(10) not null,
+	puntos number(3,0) default 0 not null,
 	forma_pago_id number(10,0) not null,
 	constraint cliente_pk primary key(cliente_id),
 	constraint fpago_cliente_fk foreign key(forma_pago_id) references forma_pago(forma_pago_id)

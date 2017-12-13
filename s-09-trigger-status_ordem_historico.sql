@@ -10,7 +10,8 @@ v_fecha_status date;
 v_status_orden_id number(10,0);
 v_orden_compra_id number(10,0);
 BEGIN
-select status_orden_historico_seq.nextval into v_status_orden_historico_id from dual;
+select status_orden_historico_seq.nextval into v_status_orden_historico_id 
+from dual;
 v_fecha_status :=:NEW.fecha_status;
 v_status_orden_id:=:NEW.status_orden_id;
 v_orden_compra_id:=:NEW.orden_compra_id;
