@@ -1,5 +1,5 @@
 --@Autor(es): Mejia Valdiviezo Ernesto Daniel
---@Fecha creación: 11/12/2017
+--@Fecha creación: 12/12/2017
 --@Descripción: Procedimiento que crea archivos txt por factura
 
 --CREATE OR REPLACE DIRECTORY facturas AS '/home/oracle/Documeto_charturas';

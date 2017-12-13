@@ -38,10 +38,10 @@ create table album_musical(
 create table pelicula(
 	producto_id number(10,0) not null,
 	nombre varchar2(40) not null,
-	genero varchar2(20) not null,
-	duracion number(4,1) not null,
+	genero varchar2(40) not null,
+	duracion number(4,0) not null,
 	clasificacion varchar2(4) not null,
-	formato varchar2(20) not null,
+	formato varchar2(40) not null,
 	constraint pelicula_pk primary key(producto_id),
 	constraint prod_pelicula_id_fk foreign key(producto_id) references producto(producto_id)
 );
@@ -56,7 +56,7 @@ create table forma_pago(
 create table tarjeta_credito(
 	forma_pago_id number(10,0) not null,
 	num_tarjeta varchar2(20) not null,
-	tipo_tarjeta varchar2(15) not null,
+	tipo_tarjeta varchar2(40) not null,
 	mes_vencimiento varchar2(2) not null,
 	anio_vencimiento varchar2(2) not null,
 	num_seguridad varchar2(3) not null,
@@ -148,13 +148,13 @@ create table orden_compra_producto(
 	constraint prod_ocp_id_fk foreign key(producto_id) references producto(producto_id),
 	constraint orc_ocp_id_fk foreign key(orden_compra_id) references orden_compra(orden_compra_id)
 );
-create table precio_prodcuto(
+create table precio_producto(
 	precio_prodcuto_id number(10,0) not null,
 	precio number(6,2) not null,
 	fecha_inicio date default sysdate not null,
 	fecha_fin date not null,
 	producto_id number(10,0) not null,
-	constraint precprod_pk primary key(precio_prodcuto_id),
+	constraint precprod_pk primary key(precio_producto_id),
 	constraint prod_pp_id_fk foreign key(producto_id) references producto(producto_id)
 );
 create table factura(
