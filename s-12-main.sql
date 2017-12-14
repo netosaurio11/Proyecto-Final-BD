@@ -9,6 +9,13 @@
 @@s-05-secuencias.sql
 @@s-06-indices.sql
 @@s-08-vistas.sql
+
+--CREATE OR REPLACE DIRECTORY FACTURAS AS '/home/oracle/facturas';
+CREATE OR REPLACE DIRECTORY FACTURAS AS '/home/netosaurio11/Documentos/facturas';
+/
+GRANT READ ON DIRECTORY FACTURAS TO PUBLIC;
+/
+
 @@s-09-trigger-cliente.sql
 @@s-09-trigger-status_ordem_historico.sql
 @@s-10-procedimiento-factura.sql
