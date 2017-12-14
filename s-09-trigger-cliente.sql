@@ -6,8 +6,8 @@ create or replace trigger cliente_trigger
 	after insert on orden_compra
 	for each row
 DECLARE
-v_puntos numeric(3,0);
-v_monto_total numeric(6,2);
+v_puntos number(3,0);
+v_monto_total number(6,2);
 BEGIN
 select puntos into v_puntos 
 from cliente 
