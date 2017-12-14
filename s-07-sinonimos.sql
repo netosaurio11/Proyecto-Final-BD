@@ -17,13 +17,13 @@ grant select on cliente to gm_proy_invitado;
 
 connect gm_proy_invitado / invitado
 
-CREATE SYNONYM gm_proy_admin.producto_sinonimo
-for producto;
+CREATE SYNONYM producto_sinonimo 
+for gm_proy_admin.producto;
 
-CREATE SYNONYM gm_proy_admin.factura_sinonimo
-for factura;
+CREATE SYNONYM factura_sinonimo
+for gm_proy_admin.factura;
 
-CREATE SYNONYM gm_proy_admin.cliente_sinonimo
-for cliente;
+CREATE SYNONYM cliente_sinonimo
+for gm_proy_admin.cliente;
 
 connect gm_proy_admin/admin;
