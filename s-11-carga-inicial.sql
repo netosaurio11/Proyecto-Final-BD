@@ -67,26 +67,26 @@ insert into transferencia (forma_pago_id, CLABE)
 insert into transferencia (forma_pago_id, CLABE) 
 	values (10, '44183-400');
 --CLIENTE
-insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, puntos, forma_pago_id) 
-	values (cliente_seq.nextval, 'Giustina', 'Heffy', 'Davisson', 4731825087, 'GEHD123', 'gdavisson0', 'gdavisson0@wikia.com', 'RqJyljb8fN', 1, 1);
-insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, puntos, forma_pago_id) 
-	values (cliente_seq.nextval, 'Truman', 'Pallent', 'Gleed', 2741956255, 'TRPG123', 'tgleed1', 'tgleed1@imdb.com', 'GJDbEgILSr', 2, 2);
-insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, puntos, forma_pago_id) 
-	values (cliente_seq.nextval, 'De witt', 'Engeham', 'Escot', 4866414998, 'DEEE123', 'descot2', 'descot2@loc.gov', '0yTxckukG', 3, 3);
-insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, puntos, forma_pago_id) 
-	values (cliente_seq.nextval, 'Ronna', 'Gabler', 'Ferries', 3057059883, 'ROGF123', 'rferries3', 'rferries3@drupal.org', '2eMkn23s9n', 4, 4);
-insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, puntos, forma_pago_id) 
-	values (cliente_seq.nextval, 'Cornela', 'Stibbs', 'Keming', 3747655295, 'COSK123', 'ckeming4', 'ckeming4@sogou.com', '5BMDG4', 5, 5);
-insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, puntos, forma_pago_id) 
-	values (cliente_seq.nextval, 'Yancy', 'McGinney', 'MacSween', 7381666393, 'YAMM123', 'ymacsween5', 'ymacsween5@washingtonpost.com', 'WvM2HQ', 0, 6);
-insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, puntos, forma_pago_id) 
-	values (cliente_seq.nextval, 'Cort', 'Harness', 'Wilkisson', 3835691088, 'COHW123', 'cwilkisson6', 'cwilkisson6@reverbnation.com', 'ILE8HD0', 0, 7);
-insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, puntos, forma_pago_id) 
-	values (cliente_seq.nextval, 'Waldemar', 'Zahor', 'Featonby', 9807238607, 'WAZF123', 'wfeatonby7', 'wfeatonby7@pbs.org', 'dyBRta6D2r', 0, 8);
-insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, puntos, forma_pago_id) 
-	values (cliente_seq.nextval, 'Francesca', 'Halso', 'Grahamslaw', 4148467010, 'FRHG123', 'fgrahamslaw8', 'fgrahamslaw8@dot.gov', 'JHTImHHq9', 0, 9);
-insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, puntos, forma_pago_id) 
-	values (cliente_seq.nextval, 'Mayor', 'Blaydon', 'Heynen', 8104996168, 'MABH123', 'mheynen9', 'mheynen9@wikia.com', 'jvs9qk', 0, 10);	
+insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, forma_pago_id) 
+	values (cliente_seq.nextval, 'Giustina', 'Heffy', 'Davisson', 4731825087, 'GEHD123', 'gdavisson0', 'gdavisson0@wikia.com', 'RqJyljb8fN', 1);
+insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, forma_pago_id) 
+	values (cliente_seq.nextval, 'Truman', 'Pallent', 'Gleed', 2741956255, 'TRPG123', 'tgleed1', 'tgleed1@imdb.com', 'GJDbEgILSr', 2);
+insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, forma_pago_id) 
+	values (cliente_seq.nextval, 'De witt', 'Engeham', 'Escot', 4866414998, 'DEEE123', 'descot2', 'descot2@loc.gov', '0yTxckukG', 3);
+insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, forma_pago_id) 
+	values (cliente_seq.nextval, 'Ronna', 'Gabler', 'Ferries', 3057059883, 'ROGF123', 'rferries3', 'rferries3@drupal.org', '2eMkn23s9n', 4);
+insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, forma_pago_id) 
+	values (cliente_seq.nextval, 'Cornela', 'Stibbs', 'Keming', 3747655295, 'COSK123', 'ckeming4', 'ckeming4@sogou.com', '5BMDG4', 5);
+insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, forma_pago_id) 
+	values (cliente_seq.nextval, 'Yancy', 'McGinney', 'MacSween', 7381666393, 'YAMM123', 'ymacsween5', 'ymacsween5@washingtonpost.com', 'WvM2HQ', 6);
+insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, forma_pago_id) 
+	values (cliente_seq.nextval, 'Cort', 'Harness', 'Wilkisson', 3835691088, 'COHW123', 'cwilkisson6', 'cwilkisson6@reverbnation.com', 'ILE8HD0', 7);
+insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, forma_pago_id) 
+	values (cliente_seq.nextval, 'Waldemar', 'Zahor', 'Featonby', 9807238607, 'WAZF123', 'wfeatonby7', 'wfeatonby7@pbs.org', 'dyBRta6D2r', 8);
+insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, forma_pago_id) 
+	values (cliente_seq.nextval, 'Francesca', 'Halso', 'Grahamslaw', 4148467010, 'FRHG123', 'fgrahamslaw8', 'fgrahamslaw8@dot.gov', 'JHTImHHq9', 9);
+insert into cliente (cliente_id, nombre, ap_paterno, ap_materno, telefono, rfc, username, email, password, forma_pago_id) 
+	values (cliente_seq.nextval, 'Mayor', 'Blaydon', 'Heynen', 8104996168, 'MABH123', 'mheynen9', 'mheynen9@wikia.com', 'jvs9qk', 10);	
 --TIPO_DIRECCION
 insert into tipo_direccion (tipo_direccion_id, clave, descripcion) 
 	values (1, 'E', 'Dirección de entrega');

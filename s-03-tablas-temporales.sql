@@ -8,7 +8,7 @@ create global temporary table producto_temporal(
 	precio_actual number(6,2) not null,
 	copias_vendidas number(10,0) not null,
 	copias_en_existencia number(10,0) not null,
-	url_setreaming varchar2(40) not null,
+	url_streaming varchar2(40) not null,
 	num_visualizaciones number(10,0) not null,
 	folio varchar2(13) not null,
 	nombre_videojuego varchar2(40) null,

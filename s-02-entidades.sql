@@ -14,7 +14,7 @@ create table producto (
 	tipo_producto char(1) not null,
 	constraint producto_pk primary key(producto_id),
 	--constraint producto_folio_uk unique(folio),
-	constraint producto_url_uk unique(url_setreaming),
+	constraint producto_url_uk unique(url_streaming),
 	constraint producto_tipo_chk check(tipo_producto in('V','P','A'))
 );
 
