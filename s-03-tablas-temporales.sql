@@ -25,7 +25,7 @@ create global temporary table producto_temporal(
 	formato varchar2(20) null,
 	constraint producto_temp_pk primary key(producto_temporal_id),
 	constraint ptemp_folio_uk unique(folio),
-	constraint ptemp_url_uk unique(url_setreaming)
+	constraint ptemp_url_uk unique(url_streaming)
 )on commit delete rows;
 create global temporary table forma_pago_temporal(
 forma_pago_temporal_id number(10,0) not null,
