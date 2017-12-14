@@ -1,7 +1,6 @@
 --@Autor(es): Mejia Valdiviezo Ernesto Daniel, Godoy Juarez Carlos
 --@Fecha de creación: 11/12/2017
 --@Descripción: Creación de usuarios, roles y asignación de permisos
-
 connect sys/system as sysdba
 
 prompt creando usuario gm_proy_admin
@@ -38,4 +37,4 @@ create or replace directory tmp_dir as '/tmp';
 grant read, write on directory tmp_dir to gm_proy_admin;
 
 prompt Listo!
-connect gm_proy_admin/admin;;
+connect gm_proy_admin/admin;
