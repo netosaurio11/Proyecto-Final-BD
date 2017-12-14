@@ -1,7 +1,6 @@
 --@Autor(es): Mejia Valdiviezo Ernesto Daniel
 --@Fecha creación: 12/12/2017
 --@Descripción: Trigger para actualizar los puntos de un cliente
-
 create or replace trigger cliente_trigger
 	after insert on orden_compra
 	for each row
@@ -16,6 +15,9 @@ where cliente_id = :NEW.cliente_id;
 select monto_total into v_monto_total
 from factura
 where orden_compra_id = :NEW.orden_compra_id;
+
+dbms_output.put_line('v_puntos: ' || v_puntos);
+dbms_output.put_line('v_monto_total: ' || v_monto_total);
 
 if v_puntos >= 20 then
 	update factura
